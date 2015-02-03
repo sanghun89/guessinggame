@@ -100,13 +100,13 @@ body {
   .counter-container p.status {
     color: #FFF;
     display: block;
-    margin: 8px auto 0 auto;
+    margin: 12px auto 10px auto;
     width: 100%;
     text-align: center; }
   .counter-container form.guess-container {
     display: block;
     width: 85%;
-    margin: 8px auto 0 auto;
+    margin: 12px auto 10px auto;
     position: relative;
     overflow: hidden; }
     .counter-container form.guess-container input {
@@ -137,9 +137,20 @@ body {
         border-top-right-radius: 3px;
         -moz-border-radius-bottomright: 3px;
         -webkit-border-bottom-right-radius: 3px;
-        border-bottom-right-radius: 3px; }
-    .counter-container form.guess-container .hint {
-      background: #FC0107;
+        border-bottom-right-radius: 3px;
+        -moz-transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transition: background 0.3s linear;
+        -o-transition: background 0.3s linear;
+        -webkit-transition: background 0.3s linear;
+        transition: background 0.3s linear; }
+        .counter-container form.guess-container input[type="submit"]:hover {
+          background: #4499e0; }
+    .counter-container form.guess-container button {
+      display: block;
+      width: 49%;
+      margin-right: 2%;
       padding: 8px;
       border: 0;
       -moz-border-radius: 4px;
@@ -147,8 +158,29 @@ body {
       border-radius: 4px;
       color: #FFF;
       font-size: 16px;
-      margin-top: 8px; }
+      margin-top: 8px;
+      float: left;
+      cursor: pointer;
+      -moz-transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -moz-transition: background 0.3s linear;
+      -o-transition: background 0.3s linear;
+      -webkit-transition: background 0.3s linear;
+      transition: background 0.3s linear; }
+    .counter-container form.guess-container .hint {
+      background: #FC0107; }
+      .counter-container form.guess-container .hint:hover {
+        background: #fe2328; }
+    .counter-container form.guess-container .reset {
+      background: #06ae06;
+      margin-right: 0; }
+      .counter-container form.guess-container .reset:hover {
+        background: #07d107; }
     .counter-container form.guess-container .moves-counter {
       color: #FFF;
       float: right;
       margin-top: 8px; }
+      .counter-container form.guess-container .moves-counter i {
+        font-size: 22px;
+        line-height: 110%; }

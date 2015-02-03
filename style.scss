@@ -92,7 +92,7 @@ body {
 	p.status {
 		color: #FFF;
 		display: block;
-		margin: 8px auto 0 auto;
+		margin: 12px auto 10px auto;
 		width: 100%;
 		text-align: center;
 	} // End of status
@@ -100,7 +100,7 @@ body {
 	form.guess-container {
 		display: block;
 		width:  85%;
-		margin: 8px auto 0 auto;
+		margin: 12px auto 10px auto;
 		position: relative;
 		overflow: hidden;
 		
@@ -130,23 +130,55 @@ body {
 				right:0;
 				@include border-top-right-radius(3px);
 				@include border-bottom-right-radius(3px);
+				@include translate3d(0 ,0, 0);
+				@include transition(background 0.3s linear);
+				
+				&:hover {
+					background: lighten(#2588DB, 7%);
+				}
 			}
 		}
 		
-		.hint {
-			background: #FC0107;
+		button {
+			display: block;
+			width: 49%;
+			margin-right: 2%;
 			padding: 8px;
 			border: 0;
 			@include border-radius(4px);
 			color: #FFF;
 			font-size: 16px;
 			margin-top: 8px;
+			float: left;
+			cursor: pointer;
+			@include translate3d(0 ,0, 0);
+			@include transition(background 0.3s linear);
+		}
+		
+		.hint {
+			background: #FC0107;
+			&:hover {
+				background: lighten(#FC0107, 7%);
+			}
+		}
+		
+		.reset {
+			background: #06ae06;
+			margin-right: 0;
+			&:hover {
+				background: lighten(#06ae06, 7%);
+			}
 		}
 		
 		.moves-counter {
 			color: #FFF;
 			float: right;
 			margin-top: 8px;
+			
+			i {
+				font-size: 22px;
+				line-height: 110%;
+			}
 		}
 	} // guess-container
 } // End of counter-container
