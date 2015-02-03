@@ -1,0 +1,152 @@
+/* Importing Compass Tools */
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/support";
+@import 'compass/css3/filter';
+
+$dark-blue: #171D25;
+/* General */
+body {
+	background: $dark-blue;
+	font-family: Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+}
+
+.main-container {
+	width: 100%;
+	position: relative;
+	overflow: auto;
+	height: 100%;
+}
+
+.counter-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 30%;
+	min-width: 295px;
+	max-height: 390px;
+	
+	h1 {
+		font-size: 36px;
+		display: block;
+		text-align: center;
+		width:100%;
+		color: #FFF;
+		font-variant: small-caps;
+		margin-bottom: 8px;
+		line-height: 100%
+	}
+	
+	.gauge-container {
+		width: 85%;
+		margin: 0 auto;
+		overflow: hidden;
+		
+		$ticker-margin: 2%;
+		$number-of-tickers :20;
+		span.ticker {
+			display: block;
+			float: left;
+			background: lighten($dark-blue, 15%);
+			width: ((100% - ($ticker-margin*($number-of-tickers - 1)))/$number-of-tickers);
+			margin-right: $ticker-margin;
+			height: 55px;
+			@include border-radius(5px);
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		
+		/* Ticks colors */
+		// #0E1CAD
+		// #1C28AB
+		// #202BA6
+		// #2D37A6
+		// #3D45A5
+		// #4D53A5
+		// #5E63A5
+		// #D5CC72
+		// #E8D941
+		// #FDE812
+		// #FFE800
+		// #FFC200
+		// #FFA500
+		// #FF7E00
+		// #FF7E00
+		// #FF7400
+		// #FF6100
+		// #FF5700
+		// #FF4D00
+		// #FF0000
+		
+		
+	} // End of gauge-container
+	
+	p.status {
+		color: #FFF;
+		display: block;
+		margin: 8px auto 0 auto;
+		width: 100%;
+		text-align: center;
+	} // End of status
+	
+	form.guess-container {
+		display: block;
+		width:  85%;
+		margin: 8px auto 0 auto;
+		position: relative;
+		overflow: hidden;
+		
+		input {
+			outline: none;
+			line-height: 120%;
+			display: block;
+			
+			&[type="text"] {
+				width: 94%;
+				padding: 8px 3%;
+				border: 0;
+				font-size: 16px;
+				@include border-radius(4px);
+			}
+			
+			&[type="submit"] {
+				cursor: pointer;
+				position: absolute;
+				font-size: 16px;
+				padding: 8px;
+				border: 0;
+				background: #2588DB;
+				color:#FFF;
+				display: block;
+				top:0;
+				right:0;
+				@include border-top-right-radius(3px);
+				@include border-bottom-right-radius(3px);
+			}
+		}
+		
+		.hint {
+			background: #FC0107;
+			padding: 8px;
+			border: 0;
+			@include border-radius(4px);
+			color: #FFF;
+			font-size: 16px;
+			margin-top: 8px;
+		}
+		
+		.moves-counter {
+			color: #FFF;
+			float: right;
+			margin-top: 8px;
+		}
+	} // guess-container
+} // End of counter-container

@@ -1,0 +1,154 @@
+/* Importing Compass Tools */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* General */
+body {
+  background: #171D25;
+  font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  width: 100%;
+  height: 100%;
+  font-size: 16px; }
+
+.main-container {
+  width: 100%;
+  position: relative;
+  overflow: auto;
+  height: 100%; }
+
+.counter-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 30%;
+  min-width: 295px;
+  max-height: 390px; }
+  .counter-container h1 {
+    font-size: 36px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: #FFF;
+    font-variant: small-caps;
+    margin-bottom: 8px;
+    line-height: 100%; }
+  .counter-container .gauge-container {
+    width: 85%;
+    margin: 0 auto;
+    overflow: hidden;
+    /* Ticks colors */ }
+    .counter-container .gauge-container span.ticker {
+      display: block;
+      float: left;
+      background: #344254;
+      width: 3.1%;
+      margin-right: 2%;
+      height: 55px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; }
+      .counter-container .gauge-container span.ticker:last-child {
+        margin-right: 0; }
+  .counter-container p.status {
+    color: #FFF;
+    display: block;
+    margin: 8px auto 0 auto;
+    width: 100%;
+    text-align: center; }
+  .counter-container form.guess-container {
+    display: block;
+    width: 85%;
+    margin: 8px auto 0 auto;
+    position: relative;
+    overflow: hidden; }
+    .counter-container form.guess-container input {
+      outline: none;
+      line-height: 120%;
+      display: block; }
+      .counter-container form.guess-container input[type="text"] {
+        width: 94%;
+        padding: 8px 3%;
+        border: 0;
+        font-size: 16px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px; }
+      .counter-container form.guess-container input[type="submit"] {
+        cursor: pointer;
+        position: absolute;
+        font-size: 16px;
+        padding: 8px;
+        border: 0;
+        background: #2588DB;
+        color: #FFF;
+        display: block;
+        top: 0;
+        right: 0;
+        -moz-border-radius-topright: 3px;
+        -webkit-border-top-right-radius: 3px;
+        border-top-right-radius: 3px;
+        -moz-border-radius-bottomright: 3px;
+        -webkit-border-bottom-right-radius: 3px;
+        border-bottom-right-radius: 3px; }
+    .counter-container form.guess-container .hint {
+      background: #FC0107;
+      padding: 8px;
+      border: 0;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      color: #FFF;
+      font-size: 16px;
+      margin-top: 8px; }
+    .counter-container form.guess-container .moves-counter {
+      color: #FFF;
+      float: right;
+      margin-top: 8px; }

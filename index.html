@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+	<title>Guessing Game</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Loading Script -->
+<script src="script.js"></script>
+</body>
+<div class="main-continer">
+	<div class="counter-container">
+		<h1>Guess Your Number</h1>
+		<!-- Cold Hot Gauge -->
+		<div class="gauge-container">
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+			<span class="ticker"></span>
+		</div>
+		<!-- Ticker -->
+		
+		<!-- Status-->
+		<p class="status"> Try your luck! </p>
+		
+		<!-- Input Field -->
+		<form id="guess-number" class="guess-container">
+			<input type="text" placeholder="Dat number doe." name="guessed">
+			<input type="submit" name="submit" value="Guess it!">
+			<button class="hint">Hint ?</button>
+			<div class="moves-counter">
+				<i>0</i> <span>Move(s)</span>
+			</div>
+		</form>
+	</div>
+</div>
+</html>
