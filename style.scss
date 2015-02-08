@@ -58,34 +58,19 @@ body {
 			margin-right: $ticker-margin;
 			height: 55px;
 			@include border-radius(5px);
+			@include translate3d(0,0,0);
+			@include transition(background, 0.3s, linear);
 			&:last-child {
 				margin-right: 0;
 			}
 		}
 		
 		/* Ticks colors */
-		// #0E1CAD
-		// #1C28AB
-		// #202BA6
-		// #2D37A6
-		// #3D45A5
-		// #4D53A5
-		// #5E63A5
-		// #D5CC72
-		// #E8D941
-		// #FDE812
-		// #FFE800
-		// #FFC200
-		// #FFA500
-		// #FF7E00
-		// #FF7E00
-		// #FF7400
-		// #FF6100
-		// #FF5700
-		// #FF4D00
-		// #FF0000
+		$tick-color: #0E1CAD, #1C28AB, #202BA6, #2D37A6, #3D45A5, #4D53A5, #5E63A5, #D5CC72, #E8D941, #FDE812, #FFE800, #FFC200, #FFA500, #FF7E00, #FF7E00, #FF7400, #FF6100, #FF5700, #FF4D00, #FF0000;
 		
-		
+		@for $i from 1 through 20 {
+			span.ticker.active.tick-#{$i} {background: nth($tick-color, $i)}
+		}
 	} // End of gauge-container
 	
 	p.status {

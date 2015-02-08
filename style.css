@@ -94,9 +94,56 @@ body {
       height: 55px;
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
-      border-radius: 5px; }
+      border-radius: 5px;
+      -moz-transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -moz-transition: background, 0.3s, linear;
+      -o-transition: background, 0.3s, linear;
+      -webkit-transition: background, 0.3s, linear;
+      transition: background, 0.3s, linear; }
       .counter-container .gauge-container span.ticker:last-child {
         margin-right: 0; }
+    .counter-container .gauge-container span.ticker.active.tick-1 {
+      background: #0E1CAD; }
+    .counter-container .gauge-container span.ticker.active.tick-2 {
+      background: #1C28AB; }
+    .counter-container .gauge-container span.ticker.active.tick-3 {
+      background: #202BA6; }
+    .counter-container .gauge-container span.ticker.active.tick-4 {
+      background: #2D37A6; }
+    .counter-container .gauge-container span.ticker.active.tick-5 {
+      background: #3D45A5; }
+    .counter-container .gauge-container span.ticker.active.tick-6 {
+      background: #4D53A5; }
+    .counter-container .gauge-container span.ticker.active.tick-7 {
+      background: #5E63A5; }
+    .counter-container .gauge-container span.ticker.active.tick-8 {
+      background: #D5CC72; }
+    .counter-container .gauge-container span.ticker.active.tick-9 {
+      background: #E8D941; }
+    .counter-container .gauge-container span.ticker.active.tick-10 {
+      background: #FDE812; }
+    .counter-container .gauge-container span.ticker.active.tick-11 {
+      background: #FFE800; }
+    .counter-container .gauge-container span.ticker.active.tick-12 {
+      background: #FFC200; }
+    .counter-container .gauge-container span.ticker.active.tick-13 {
+      background: #FFA500; }
+    .counter-container .gauge-container span.ticker.active.tick-14 {
+      background: #FF7E00; }
+    .counter-container .gauge-container span.ticker.active.tick-15 {
+      background: #FF7E00; }
+    .counter-container .gauge-container span.ticker.active.tick-16 {
+      background: #FF7400; }
+    .counter-container .gauge-container span.ticker.active.tick-17 {
+      background: #FF6100; }
+    .counter-container .gauge-container span.ticker.active.tick-18 {
+      background: #FF5700; }
+    .counter-container .gauge-container span.ticker.active.tick-19 {
+      background: #FF4D00; }
+    .counter-container .gauge-container span.ticker.active.tick-20 {
+      background: #FF0000; }
   .counter-container p.status {
     color: #FFF;
     display: block;
