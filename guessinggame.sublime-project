@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/samchun/Documents/Fullstack/guessing_game",
+			"folder_exclude_patterns" : [".sass-cache"]
+		}
+	]
+}
