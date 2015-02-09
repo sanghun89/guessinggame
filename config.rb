@@ -1,5 +1,5 @@
-css_dir = "/"
-sass_dir = "/"
+css_dir = "css/"
+sass_dir = "css/"
 
 output_style = :nested
 
