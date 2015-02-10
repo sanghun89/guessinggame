@@ -10,7 +10,6 @@
 
 	<!-- css -->
 	<link rel="stylesheet" href="css/style.css">
-	<script src=""></script>
 
 	<!-- js -->
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -18,62 +17,64 @@
 	<script src="js/script.js"></script>
 </head>
 <body>
+	<div class="main-continer">
 
+		<!-- Counter Container -->
+		<div class="counter-container">
+			<h1>Guess Your Number</h1>
+			<!-- Cold Hot Gauge -->
+			<div id="ticker" class="gauge-container">
+				<span class="ticker tick-1"></span>
+				<span class="ticker tick-2"></span>
+				<span class="ticker tick-3"></span>
+				<span class="ticker tick-4"></span>
+				<span class="ticker tick-5"></span>
+				<span class="ticker tick-6"></span>
+				<span class="ticker tick-7"></span>
+				<span class="ticker tick-8"></span>
+				<span class="ticker tick-9"></span>
+				<span class="ticker tick-10"></span>
+
+				<span class="ticker tick-11"></span>
+				<span class="ticker tick-12"></span>
+				<span class="ticker tick-13"></span>
+				<span class="ticker tick-14"></span>
+				<span class="ticker tick-15"></span>
+				<span class="ticker tick-16"></span>
+				<span class="ticker tick-17"></span>
+				<span class="ticker tick-18"></span>
+				<span class="ticker tick-19"></span>
+				<span class="ticker tick-20"></span>
+			</div>
+			<!-- Ticker -->
+			
+			<!-- Status-->
+			<p id="status" class="status">Guess a number from 0 - 100</p>
+			
+			<!-- Input Field -->
+			<form id="guess-number" class="guess-container">
+				<div class="guess-input">
+					<input type="text" placeholder="Dat number doe." name="guessed">
+					<input type="submit" name="submit" value="Guess it!">
+					<a id="start-guess" href="#" class="start">Start!</a>
+				</div>
+				<button class="hint">Hint ?</button>
+				<button class="reset">Reset</button>
+				<div class="moves-counter">
+					<i id="moves">0</i> <span>Move(s) Left</span>
+				</div>
+			</form>
+		</div>
+
+		<!-- Popup Container -->
+		<div id="pop-up" class="popup-container">
+			<a href="#" class="popup-close"><i class="fa fa-times"></i></a>
+			<div class="popup">
+				<div class="popup-wrapper">
+
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-<div class="main-continer">
-
-	<!-- Counter Container -->
-	<div class="counter-container">
-		<h1>Guess Your Number</h1>
-		<!-- Cold Hot Gauge -->
-		<div class="gauge-container">
-			<span class="ticker tick-1"></span>
-			<span class="ticker tick-2"></span>
-			<span class="ticker tick-3"></span>
-			<span class="ticker tick-4"></span>
-			<span class="ticker tick-5"></span>
-			<span class="ticker tick-6"></span>
-			<span class="ticker tick-7"></span>
-			<span class="ticker tick-8"></span>
-			<span class="ticker tick-9"></span>
-			<span class="ticker tick-10"></span>
-
-			<span class="ticker tick-11"></span>
-			<span class="ticker tick-12"></span>
-			<span class="ticker tick-13"></span>
-			<span class="ticker tick-14"></span>
-			<span class="ticker tick-15"></span>
-			<span class="ticker tick-16"></span>
-			<span class="ticker tick-17"></span>
-			<span class="ticker tick-18"></span>
-			<span class="ticker tick-19"></span>
-			<span class="ticker tick-20"></span>
-		</div>
-		<!-- Ticker -->
-		
-		<!-- Status-->
-		<p class="status">Guess a number from 0 - 100</p>
-		
-		<!-- Input Field -->
-		<form id="guess-number" class="guess-container">
-			<input type="text" placeholder="Dat number doe." name="guessed">
-			<input type="submit" name="submit" value="Guess it!">
-			<button class="hint">Hint ?</button>
-			<button class="reset">Reset</button>
-			<div class="moves-counter">
-				<i>0</i> <span>Move(s) Left</span>
-			</div>
-		</form>
-	</div>
-
-	<!-- Popup Container -->
-	<div class="popup-container">
-		<a href="#" class="popup-close"><i class="fa fa-times"></i></a>
-		<div class="popup">
-			<div class="popup-wrapper">
-
-			</div>
-		</div>
-	</div>
-</div>
 </html>
