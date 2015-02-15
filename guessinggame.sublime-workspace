@@ -3,10 +3,209 @@
 	{
 		"selected_items":
 		[
+			[
+				"param",
+				"param_length"
+			],
+			[
+				"para",
+				"param_length"
+			],
+			[
+				"set",
+				"setMovesLeft"
+			],
+			[
+				"gues",
+				"guess_game"
+			],
+			[
+				"chec",
+				"checkMovesLeft"
+			],
+			[
+				"move",
+				"movesLeft"
+			],
+			[
+				"error",
+				"error_msg"
+			],
+			[
+				"gue",
+				"guess_game"
+			],
+			[
+				"mov",
+				"moveCount"
+			],
+			[
+				"coun",
+				"moveCount"
+			],
+			[
+				"guess",
+				"guess_game"
+			],
+			[
+				"tick",
+				"ticker_length"
+			],
+			[
+				"tic",
+				"ticker_length"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"num",
+				"num_int"
+			],
+			[
+				"disp",
+				"displayStatus"
+			],
+			[
+				"dis",
+				"displayStatus"
+			],
+			[
+				"gu",
+				"guess_game"
+			],
+			[
+				"sub",
+				"submit_val"
+			],
+			[
+				"generat",
+				"generateNumber"
+			],
+			[
+				"lig",
+				"light-blue"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"load",
+				"loadPopUp"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"bord",
+				"border-radius"
+			],
+			[
+				"include",
+				"include	@include"
+			],
+			[
+				"dar",
+				"dark-blue"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"abs",
+				"absolute"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"rgb",
+				"rgba	rgba()"
+			],
+			[
+				"trans",
+				"translate3d"
+			],
+			[
+				"guessed",
+				"guessedNum"
+			],
+			[
+				"Guess",
+				"guessLimit"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"Gues",
+				"GuessingGame"
+			],
+			[
+				"Num",
+				"NumberGenerator"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2495,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/script.js",
+			"settings":
+			{
+				"buffer_size": 2000,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "(function($) {\n	// Initiate Guessing Game Class\n	$.GuessingGame = function () {\n		// Storing the elements from the parameter\n		// Setting array obj to arguments obj\n		var args = Array.prototype.slice.call(arguments);\n			param_length = args.length;\n\n		if (param_length > 0) {\n			for (var i = 0; i < param_length; i++) {\n				if ($(args[i]).length) {\n					this['_' + args[i].replace('#', '')] = $(args[i]);\n				}\n			}\n		}\n\n		this.guessLimit = [1,100];\n		this.guessedNum = 0;\n		this.generatedNum = null;\n		this.movesLeft = 20;\n\n		// Setting the \"sensitivity\" of the measurment of how warm the guessing number is.\n		// Higher the number, the more extensive measurement will be in place;\n		this.guessRange = 20;\n\n		this._moves.text(this.movesLeft);\n	};\n\n	// Set Limit\n	$.GuessingGame.prototype.setLimit = function (min, max) {\n		this.guessLimit = [min, max];\n	};\n\n	// Change the number of moves left \n	$.GuessingGame.prototype.setMovesLeft = function (num) {\n		this.movesLeft = num;\n		this._moves.text(this.movesLeft);\n	};\n\n	// Set guess Range\n	$.GuessingGame.prototype.setGuessRange = function (range) {\n		this.guessRange = range;\n	};\n\n	// Generate a Number \n	$.GuessingGame.prototype.generateNumber = function () {\n		// Generate random between set min and max\n		this.generatedNum = Math.floor(Math.random() * (this.guessLimit[1] - this.guessLimit[0]) + this.guessLimit[0]);\n	};\n\n	// Validate Number \n	$.GuessingGame.prototype.validateNumber = function (_submit) {\n		var status = {no_error : true},\n			user_num = parseInt(_submit.value, 10);\n\n		// Check if input is a number \n		if (user_num.toString() !== _submit.value) {\n			status.no_error = false;\n			status.error_type = 0;\n		} else {\n			// Check if the number is inbound\n			if (user_num > this.guessLimit[1] || user_num < this.guessLimit[0]) {\n				status.no_error = false;\n				status.error_type = 1;\n			}\n		}\n\n		return status;\n	};\n\n	// Check moves left\n	$.GuessingGame.prototype.checkMovesLeft = function() {\n		return (this.movesLeft > 0);\n	};\n\n	// Check number inputed with number stored. return difference\n	$.GuessingGame.prototype.checkNumber = function(num) {\n		// overriding previously guessed number\n		var num_int = parseInt(num, 10);\n		this.guessedNum = num_int;\n\n		// Positive num is guessed low, Negative \n		return this.generatedNum - this.guessedNum;\n	};\n\n	// Determine the \"degree\" of how close you are to the number\n	$.GuessingGame.prototype.checkDegree = function(gap) {\n		var diff = Math.abs(gap);\n\n		// Set the diff to 0 if the gap is bigger than the range\n		diff = diff > this.guessRange ? 0 : this.guessRange - diff;\n\n		// Closer to 1, then closer to the guessed\n		return (diff/this.guessRange);\n	};\n\n	// Animate ticker bar \n	$.GuessingGame.prototype.tick = function(deg) {\n		var tickers = $(this._ticker).children('.ticker'),\n			ticker_length = tickers.length,\n			ticker_consumed = Math.floor(ticker_length * deg),\n			_delay = 0;\n		tickers.removeClass('.active');\n		// .one(\"transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd\", function(){\n			for (var i = 1; i <= ticker_consumed; i++) {\n				tickers.filter('.tick-'+i).delay(_delay).addClass('active');\n				_delay += 500;\n			}\n		// });\n	};\n\n	// Update status message\n	$.GuessingGame.prototype.displayStatus = function(str) {\n		this._status.text(str);\n		console.log(str);\n	};\n\n	// Update move count\n	$.GuessingGame.prototype.countMove = function() {\n		this._moves.text(--this.movesLeft);\n	};\n\n	// Give Hint\n	$.GuessingGame.prototype.hint = function() {\n\n	};\n\n	// Do Reset\n	$.GuessingGame.prototype.resetGame = function() {\n\n	};\n\n	// When complete, do something cool\n	$.GuessingGame.prototype.startEnding = function() {\n\n	};\n})(jQuery);",
+			"file": "js/guessinggame.jquery.js",
+			"file_size": 3625,
+			"file_write_time": 1423685708000000,
+			"settings":
+			{
+				"buffer_size": 3665,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/style.scss",
+			"settings":
+			{
+				"buffer_size": 4632,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -73,8 +272,12 @@
 	"file_history":
 	[
 		"/Users/samchun/Documents/Fullstack/guessing_game/script.js",
-		"/Users/samchun/Documents/Fullstack/guessing_game/index.html",
+		"/Users/samchun/Documents/Fullstack/guessing_game/js/modernizr.js",
 		"/Users/samchun/Documents/Fullstack/guessing_game/style.scss",
+		"/Users/samchun/Documents/Fullstack/guessing_game/css/style.css",
+		"/Users/samchun/Documents/Fullstack/guessing_game/config.rb",
+		"/Users/samchun/Documents/Fullstack/guessing_game/font-awesome/font-awesome.css",
+		"/Users/samchun/Documents/Fullstack/guessing_game/index.html",
 		"/Users/samchun/Documents/Fullstack/guessing_game/guessinggame.sublime-workspace",
 		"/Users/samchun/Documents/Fullstack/guessing_game/guessinggame.sublime-project",
 		"/Users/samchun/Library/Application Support/Sublime Text 2/Packages/User/HTML/scriptsrc.sublime-snippet",
@@ -98,6 +301,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"argume",
+			"ticker",
+			"guess_game",
+			"status",
+			"submit_val",
+			"ticker",
+			"element",
+			"2588DB",
+			"ticker",
+			"element",
+			"NumberGenerator",
 			"span",
 			"Guessing"
 		],
@@ -117,8 +331,480 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 2495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								567,
+								567
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "js/script.js",
+					"settings":
+					{
+						"buffer_size": 2000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1882,
+								1882
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 2.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/guessinggame.jquery.js",
+					"settings":
+					{
+						"buffer_size": 3665,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
+							]
+						],
+						"settings":
+						{
+							"_anf_new": "",
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1577.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "css/style.scss",
+					"settings":
+					{
+						"buffer_size": 4632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1205,
+								1205
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 27.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -139,11 +825,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -164,12 +857,20 @@
 		"selected_items":
 		[
 			[
-				"style.scss",
-				"style.scss"
+				"confi",
+				"config.rb"
+			],
+			[
+				"con",
+				"config.rb"
 			],
 			[
 				"ind",
 				"index.html"
+			],
+			[
+				"style.scss",
+				"style.scss"
 			],
 			[
 				"sc",
@@ -201,7 +902,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 150.0,
+	"side_bar_visible": true,
+	"side_bar_width": 249.0,
 	"status_bar_visible": true
 }

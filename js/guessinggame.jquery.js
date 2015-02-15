@@ -2,7 +2,8 @@
 	// Initiate Guessing Game Class
 	$.GuessingGame = function () {
 		// Storing the elements from the parameter
-		var args = arguments;
+		// Setting array obj to arguments obj
+		var args = Array.prototype.slice.call(arguments);
 			param_length = args.length;
 
 		if (param_length > 0) {
