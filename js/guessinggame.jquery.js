@@ -15,7 +15,7 @@
 		}
 
 		this.guessLimit = [1,100];
-		this.guessedNum = 0;
+		this.guessedNum = [];
 		this.generatedNum = null;
 		this.movesLeft = 20;
 
@@ -24,6 +24,10 @@
 		this.guessRange = 20;
 
 		this._moves.text(this.movesLeft);
+
+		// tick speed
+		this.tickspeed = 40;
+		this.tickTimeOut = [];
 	};
 
 	// Set Limit
@@ -48,6 +52,20 @@
 		this.generatedNum = Math.floor(Math.random() * (this.guessLimit[1] - this.guessLimit[0]) + this.guessLimit[0]);
 	};
 
+	// Check for duplicates
+	$.GuessingGame.prototype.checkDuplicate = function(num) {
+		var duplicate = false;
+
+		for (var i = 0; i < this.guessedNum.length; i++) {
+			if (num === this.guessedNum[i]) {
+				duplicate = true;
+				break;
+			}
+		}
+
+		return duplicate;
+	};
+
 	// Validate Number 
 	$.GuessingGame.prototype.validateNumber = function (_submit) {
 		var status = {no_error : true},
@@ -63,6 +81,11 @@
 				status.no_error = false;
 				status.error_type = 1;
 			}
+
+			if (this.checkDuplicate(user_num)) {
+				status.no_error=false;
+				status.error_type = 2;
+			}
 		}
 
 		return status;
@@ -77,10 +100,10 @@
 	$.GuessingGame.prototype.checkNumber = function(num) {
 		// overriding previously guessed number
 		var num_int = parseInt(num, 10);
-		this.guessedNum = num_int;
+		this.guessedNum.push(num_int);
 
 		// Positive num is guessed low, Negative 
-		return this.generatedNum - this.guessedNum;
+		return this.generatedNum - this.guessedNum[this.guessedNum.length - 1];
 	};
 
 	// Determine the "degree" of how close you are to the number
@@ -99,20 +122,36 @@
 		var tickers = $(this._ticker).children('.ticker'),
 			ticker_length = tickers.length,
 			ticker_consumed = Math.floor(ticker_length * deg),
-			_delay = 0;
-		tickers.removeClass('.active');
-		// .one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-			for (var i = 1; i <= ticker_consumed; i++) {
-				tickers.filter('.tick-'+i).delay(_delay).addClass('active');
-				_delay += 500;
+			_delay = 0,
+			key = 1;
+
+		// Reset Tick
+		if (this.tickTimeOut.length > 0) {
+			for (var i = 0; i < this.tickTimeOut.length; i++) {
+				clearTimeout(this.tickTimeOut[i]);
 			}
-		// });
+
+			this.tickTimeOut = [];
+		}
+
+		tickers.removeClass('.active');
+		
+		// Use setTimeOut to allow incremental css changes. 
+		if (ticker_consumed > 0) {
+			for (var k = 0; k < ticker_consumed; k++) {
+				_delay = this.tickspeed * (k+1);
+				this.tickTimeOut.push(setTimeout(function() {
+					tickers.filter('.tick-'+key).addClass('active');
+					console.log(key);
+					key++;
+				}, _delay));
+			}
+		}	
 	};
 
 	// Update status message
 	$.GuessingGame.prototype.displayStatus = function(str) {
 		this._status.text(str);
-		console.log(str);
 	};
 
 	// Update move count

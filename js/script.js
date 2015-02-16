@@ -40,6 +40,7 @@
 				return false;
 			}
 
+			// Store and validate inputs
 			var _submit = $(this).serializeArray()[0],
 				check_num = guess_game.validateNumber(_submit),
 				error_msg = null;
@@ -52,9 +53,13 @@
 					case 1: // Not inbound the guessing limits
 						error_msg = "Guess between " + guess_game.guessLimit[0] + " and " + guess_game.guessLimit[1] + "!";
 						break;
+					case 2: // Duplicate Entry
+						error_msg = "You already guessed this number!";
+						break;
 				}
 			}
 
+			// If no error, calculate how close you are
 			if (null !== error_msg) {
 				guess_game.displayStatus(error_msg);
 				return false;
