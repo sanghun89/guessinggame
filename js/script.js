@@ -1,14 +1,4 @@
 (function($) {
-	
-	// Set Popup
-	$.fn.displayPopUp = function(content, f) {
-		var el = $(this),
-			_html = content || '';
-		el.fadeIn(function() {
-			if (typeof f === "function") f();
-		}).css('display','table').find('.popup-wrapper').html(_html);
-	};
-
 	/* ------------------------------------------
 	 * Click Events called on DOM Ready
 	 * -----------------------------------------*/
@@ -17,15 +7,18 @@
 		var guess_game = new $.GuessingGame('#ticker', '#status', '#moves');
 
 		// On clicking start Button
-		$('#start-guess').one('click', function(e) {
+		$('#start-guess').on('click', function(e) {
 			e.preventDefault();
 
 			// Generate random number
 			if (guess_game.generatedNum === null)
 				guess_game.generateNumber();
 
+			// Display buttons 
+			$('#guess-tools').stop(true).fadeIn();
+
 			// Hide the start button
-			$(this).fadeOut(function() {
+			$(this).stop(true).fadeOut(function() {
 				console.log(guess_game);
 			});
 		});
@@ -72,10 +65,59 @@
 					degree = guess_game.checkDegree(gap);
 				console.log(gap);
 				console.log(degree);
-				guess_game.displayStatus(gap);
+				// guess_game.displayStatus(gap);
+
 				// Animate the ticker
 				guess_game.tick(degree);
+				var temp_msg = guess_game.getTempMsg(degree);
+
+				// Update status msg and check if gap is 0
+				if (gap === 0) {
+					$('#guess-number').animate({opacity:0});
+					guess_game.startEnding();
+				} else {
+					temp_msg += " ";
+					temp_msg += gap > 0 ? "Guess higher." : "Guess lower.";
+				}
+
+				guess_game.displayStatus(temp_msg);
+
 			}
+		});
+
+		// On popup activity 
+		$('#pop-up').on('click', function(e) {
+			e.preventDefault();
+			$(this).fadeOut();
+		}).on('click', '.popup-wrapper', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+		}).on('click', '.restart', function(e) {
+			e.preventDefault();
+			guess_game.resetGame();
+			$('#pop-up').fadeOut(function() {
+				guess_game.resetGame();
+			});
+
+			$('#guess-number').animate({opacity:1});
+			$('#start-guess').stop(true).fadeIn();
+			$('#guess-tools').stop(true).fadeOut();
+		});
+
+		// On hint click 
+		$('#hint').on('click touch', function(e) {
+			e.preventDefault();
+
+			guess_game.hint();
+		});
+
+		// On reset click 
+		$('#reset').on('click touch', function(e) {
+			e.preventDefault();
+
+			guess_game.resetGame();
+			$('#start-guess').stop(true).fadeIn();
+			$('#guess-tools').stop(true).fadeOut();
 		});
 	});
 })(jQuery);

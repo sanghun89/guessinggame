@@ -55,6 +55,9 @@ body {
   height: 100%;
   font-size: 16px; }
 
+a, a:hover, a:active, a:visited, a:focus, button, button:hover, button:active, button:visited, button:focus {
+  outline: none !important; }
+
 .main-container {
   width: 100%;
   position: relative;
@@ -207,6 +210,7 @@ body {
         display: block;
         top: 0;
         right: 0;
+        -webkit-appearance: none;
         -moz-border-radius-topright: 3px;
         -webkit-border-top-right-radius: 3px;
         border-top-right-radius: 3px;
@@ -222,43 +226,45 @@ body {
         transition: background 0.3s linear; }
         .counter-container form.guess-container input[type="submit"]:hover {
           background: #4499e0; }
-    .counter-container form.guess-container button {
-      display: block;
-      width: 49%;
-      margin-right: 2%;
-      padding: 8px;
-      border: 0;
-      -moz-border-radius: 4px;
-      -webkit-border-radius: 4px;
-      border-radius: 4px;
-      color: #FFF;
-      font-size: 16px;
-      margin-top: 8px;
-      float: left;
-      cursor: pointer;
-      -moz-transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      -moz-transition: background 0.3s linear;
-      -o-transition: background 0.3s linear;
-      -webkit-transition: background 0.3s linear;
-      transition: background 0.3s linear; }
-    .counter-container form.guess-container .hint {
-      background: #FC0107; }
-      .counter-container form.guess-container .hint:hover {
-        background: #fe2328; }
-    .counter-container form.guess-container .reset {
-      background: #06ae06;
-      margin-right: 0; }
-      .counter-container form.guess-container .reset:hover {
-        background: #07d107; }
-    .counter-container form.guess-container .moves-counter {
-      color: #FFF;
-      float: right;
-      margin-top: 8px; }
-      .counter-container form.guess-container .moves-counter i {
-        font-size: 22px;
-        line-height: 110%; }
+    .counter-container form.guess-container .guess-tools {
+      display: none; }
+      .counter-container form.guess-container .guess-tools button {
+        display: block;
+        width: 49%;
+        margin-right: 2%;
+        padding: 8px;
+        border: 0;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        color: #FFF;
+        font-size: 16px;
+        margin-top: 8px;
+        float: left;
+        cursor: pointer;
+        -moz-transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transition: background 0.3s linear;
+        -o-transition: background 0.3s linear;
+        -webkit-transition: background 0.3s linear;
+        transition: background 0.3s linear; }
+      .counter-container form.guess-container .guess-tools .hint {
+        background: #FC0107; }
+        .counter-container form.guess-container .guess-tools .hint:hover {
+          background: #fe2328; }
+      .counter-container form.guess-container .guess-tools .reset {
+        background: #06ae06;
+        margin-right: 0; }
+        .counter-container form.guess-container .guess-tools .reset:hover {
+          background: #07d107; }
+      .counter-container form.guess-container .guess-tools .moves-counter {
+        color: #FFF;
+        float: right;
+        margin-top: 8px; }
+        .counter-container form.guess-container .guess-tools .moves-counter i {
+          font-size: 22px;
+          line-height: 110%; }
 
 .popup-container {
   background: rgba(0, 0, 0, 0.9);
@@ -311,3 +317,28 @@ body {
       -webkit-border-radius: 8px;
       border-radius: 8px;
       color: #FFF; }
+      .popup-container .popup .popup-wrapper h2 {
+        font-size: 24px; }
+      .popup-container .popup .popup-wrapper a.restart {
+        display: block;
+        text-decoration: none;
+        color: #FFF;
+        background: #2588DB;
+        margin: 0 auto;
+        text-align: center;
+        padding: 8px 0;
+        width: 50%;
+        min-width: 200px;
+        line-height: 130%;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        -moz-transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transition: background 0.3s linear;
+        -o-transition: background 0.3s linear;
+        -webkit-transition: background 0.3s linear;
+        transition: background 0.3s linear; }
+        .popup-container .popup .popup-wrapper a.restart:hover {
+          background: #4499e0; }

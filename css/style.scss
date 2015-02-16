@@ -15,6 +15,10 @@ body {
 	font-size: 16px;
 }
 
+a, a:hover, a:active, a:visited, a:focus, button, button:hover, button:active, button:visited, button:focus {
+	outline:none !important;
+}
+
 .main-container {
 	width: 100%;
 	position: relative;
@@ -113,7 +117,7 @@ body {
 					background: lighten($light-blue, 7%);
 				}
 			}
-		}
+		} // End of guess-input
 		
 		input {
 			outline: none;
@@ -139,6 +143,7 @@ body {
 				display: block;
 				top:0;
 				right:0;
+				-webkit-appearance: none;
 				@include border-top-right-radius(3px);
 				@include border-bottom-right-radius(3px);
 				@include translate3d(0 ,0, 0);
@@ -148,49 +153,53 @@ body {
 					background: lighten($light-blue, 7%);
 				}
 			}
-		}
+		} // end of input
+
+		.guess-tools {
+			display: none;
 		
-		button {
-			display: block;
-			width: 49%;
-			margin-right: 2%;
-			padding: 8px;
-			border: 0;
-			@include border-radius(4px);
-			color: #FFF;
-			font-size: 16px;
-			margin-top: 8px;
-			float: left;
-			cursor: pointer;
-			@include translate3d(0 ,0, 0);
-			@include transition(background 0.3s linear);
-		}
-		
-		.hint {
-			background: #FC0107;
-			&:hover {
-				background: lighten(#FC0107, 7%);
+			button {
+				display: block;
+				width: 49%;
+				margin-right: 2%;
+				padding: 8px;
+				border: 0;
+				@include border-radius(4px);
+				color: #FFF;
+				font-size: 16px;
+				margin-top: 8px;
+				float: left;
+				cursor: pointer;
+				@include translate3d(0 ,0, 0);
+				@include transition(background 0.3s linear);
 			}
-		}
-		
-		.reset {
-			background: #06ae06;
-			margin-right: 0;
-			&:hover {
-				background: lighten(#06ae06, 7%);
-			}
-		}
-		
-		.moves-counter {
-			color: #FFF;
-			float: right;
-			margin-top: 8px;
 			
-			i {
-				font-size: 22px;
-				line-height: 110%;
+			.hint {
+				background: #FC0107;
+				&:hover {
+					background: lighten(#FC0107, 7%);
+				}
 			}
-		}
+			
+			.reset {
+				background: #06ae06;
+				margin-right: 0;
+				&:hover {
+					background: lighten(#06ae06, 7%);
+				}
+			}
+			
+			.moves-counter {
+				color: #FFF;
+				float: right;
+				margin-top: 8px;
+				
+				i {
+					font-size: 22px;
+					line-height: 110%;
+				}
+			}
+		} // End of guess-tools
 	} // End of guess-container
 } // End of counter-container
 
@@ -240,6 +249,30 @@ body {
 			background: lighten($dark-blue, 15%);
 			@include border-radius(8px);
 			color: #FFF;
+
+			h2 {
+				font-size: 24px;
+			}
+
+			a.restart {
+				display: block;
+				text-decoration: none;
+				color: #FFF;
+				background: $light-blue;
+				margin: 0 auto;
+				text-align: center;
+				padding: 8px 0;
+				width: 50%;
+				min-width: 200px;
+				line-height: 130%;
+				@include border-radius(4px);
+				@include translate3d(0 ,0, 0);
+				@include transition(background 0.3s linear);
+				
+				&:hover {
+					background: lighten($light-blue, 7%);
+				}
+			}
 		}
 	}
 } // End of popup-container
