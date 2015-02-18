@@ -4,6 +4,106 @@
 		"selected_items":
 		[
 			[
+				"gues",
+				"guessRange"
+			],
+			[
+				"init",
+				"initialGap"
+			],
+			[
+				"prev",
+				"prev_guess"
+			],
+			[
+				"pro",
+				"progress"
+			],
+			[
+				"geen",
+				"generatedNum"
+			],
+			[
+				"la",
+				"latest_guess"
+			],
+			[
+				"pre",
+				"prev_guess"
+			],
+			[
+				"gu",
+				"guess_length"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"po",
+				"pop-up"
+			],
+			[
+				"tick",
+				"tickspeed"
+			],
+			[
+				"gue",
+				"guess_game"
+			],
+			[
+				"gen",
+				"generatedNum"
+			],
+			[
+				"web",
+				"webkit-appearance"
+			],
+			[
+				"ran",
+				"randMsg"
+			],
+			[
+				"temp",
+				"temp_msg"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"dela",
+				"delay_gap"
+			],
+			[
+				"del",
+				"delay_gap"
+			],
+			[
+				"de",
+				"delay_gap"
+			],
+			[
+				"each",
+				"each_ticker"
+			],
+			[
+				"erro",
+				"error_type"
+			],
+			[
+				"check",
+				"checkDuplicate"
+			],
+			[
 				"param",
 				"param_length"
 			],
@@ -14,10 +114,6 @@
 			[
 				"set",
 				"setMovesLeft"
-			],
-			[
-				"gues",
-				"guess_game"
 			],
 			[
 				"chec",
@@ -32,10 +128,6 @@
 				"error_msg"
 			],
 			[
-				"gue",
-				"guess_game"
-			],
-			[
 				"mov",
 				"moveCount"
 			],
@@ -46,10 +138,6 @@
 			[
 				"guess",
 				"guess_game"
-			],
-			[
-				"tick",
-				"ticker_length"
 			],
 			[
 				"tic",
@@ -70,10 +158,6 @@
 			[
 				"dis",
 				"displayStatus"
-			],
-			[
-				"gu",
-				"guess_game"
 			],
 			[
 				"sub",
@@ -175,7 +259,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2495,
+				"buffer_size": 2583,
 				"line_ending": "Unix"
 			}
 		},
@@ -183,18 +267,15 @@
 			"file": "js/script.js",
 			"settings":
 			{
-				"buffer_size": 2000,
+				"buffer_size": 3214,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "(function($) {\n	// Initiate Guessing Game Class\n	$.GuessingGame = function () {\n		// Storing the elements from the parameter\n		// Setting array obj to arguments obj\n		var args = Array.prototype.slice.call(arguments);\n			param_length = args.length;\n\n		if (param_length > 0) {\n			for (var i = 0; i < param_length; i++) {\n				if ($(args[i]).length) {\n					this['_' + args[i].replace('#', '')] = $(args[i]);\n				}\n			}\n		}\n\n		this.guessLimit = [1,100];\n		this.guessedNum = 0;\n		this.generatedNum = null;\n		this.movesLeft = 20;\n\n		// Setting the \"sensitivity\" of the measurment of how warm the guessing number is.\n		// Higher the number, the more extensive measurement will be in place;\n		this.guessRange = 20;\n\n		this._moves.text(this.movesLeft);\n	};\n\n	// Set Limit\n	$.GuessingGame.prototype.setLimit = function (min, max) {\n		this.guessLimit = [min, max];\n	};\n\n	// Change the number of moves left \n	$.GuessingGame.prototype.setMovesLeft = function (num) {\n		this.movesLeft = num;\n		this._moves.text(this.movesLeft);\n	};\n\n	// Set guess Range\n	$.GuessingGame.prototype.setGuessRange = function (range) {\n		this.guessRange = range;\n	};\n\n	// Generate a Number \n	$.GuessingGame.prototype.generateNumber = function () {\n		// Generate random between set min and max\n		this.generatedNum = Math.floor(Math.random() * (this.guessLimit[1] - this.guessLimit[0]) + this.guessLimit[0]);\n	};\n\n	// Validate Number \n	$.GuessingGame.prototype.validateNumber = function (_submit) {\n		var status = {no_error : true},\n			user_num = parseInt(_submit.value, 10);\n\n		// Check if input is a number \n		if (user_num.toString() !== _submit.value) {\n			status.no_error = false;\n			status.error_type = 0;\n		} else {\n			// Check if the number is inbound\n			if (user_num > this.guessLimit[1] || user_num < this.guessLimit[0]) {\n				status.no_error = false;\n				status.error_type = 1;\n			}\n		}\n\n		return status;\n	};\n\n	// Check moves left\n	$.GuessingGame.prototype.checkMovesLeft = function() {\n		return (this.movesLeft > 0);\n	};\n\n	// Check number inputed with number stored. return difference\n	$.GuessingGame.prototype.checkNumber = function(num) {\n		// overriding previously guessed number\n		var num_int = parseInt(num, 10);\n		this.guessedNum = num_int;\n\n		// Positive num is guessed low, Negative \n		return this.generatedNum - this.guessedNum;\n	};\n\n	// Determine the \"degree\" of how close you are to the number\n	$.GuessingGame.prototype.checkDegree = function(gap) {\n		var diff = Math.abs(gap);\n\n		// Set the diff to 0 if the gap is bigger than the range\n		diff = diff > this.guessRange ? 0 : this.guessRange - diff;\n\n		// Closer to 1, then closer to the guessed\n		return (diff/this.guessRange);\n	};\n\n	// Animate ticker bar \n	$.GuessingGame.prototype.tick = function(deg) {\n		var tickers = $(this._ticker).children('.ticker'),\n			ticker_length = tickers.length,\n			ticker_consumed = Math.floor(ticker_length * deg),\n			_delay = 0;\n		tickers.removeClass('.active');\n		// .one(\"transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd\", function(){\n			for (var i = 1; i <= ticker_consumed; i++) {\n				tickers.filter('.tick-'+i).delay(_delay).addClass('active');\n				_delay += 500;\n			}\n		// });\n	};\n\n	// Update status message\n	$.GuessingGame.prototype.displayStatus = function(str) {\n		this._status.text(str);\n		console.log(str);\n	};\n\n	// Update move count\n	$.GuessingGame.prototype.countMove = function() {\n		this._moves.text(--this.movesLeft);\n	};\n\n	// Give Hint\n	$.GuessingGame.prototype.hint = function() {\n\n	};\n\n	// Do Reset\n	$.GuessingGame.prototype.resetGame = function() {\n\n	};\n\n	// When complete, do something cool\n	$.GuessingGame.prototype.startEnding = function() {\n\n	};\n})(jQuery);",
 			"file": "js/guessinggame.jquery.js",
-			"file_size": 3625,
-			"file_write_time": 1423685708000000,
 			"settings":
 			{
-				"buffer_size": 3665,
+				"buffer_size": 7423,
 				"line_ending": "Unix"
 			}
 		},
@@ -202,7 +283,7 @@
 			"file": "css/style.scss",
 			"settings":
 			{
-				"buffer_size": 4632,
+				"buffer_size": 5656,
 				"line_ending": "Unix"
 			}
 		}
@@ -301,6 +382,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"set",
+			"= ",
+			"];\n",
+			"hint",
+			"ceiling",
+			"a",
+			"i",
+			"delay_gap",
 			"argume",
 			"ticker",
 			"guess_game",
@@ -339,15 +428,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 2495,
+						"buffer_size": 2583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								567,
-								567
+								642,
+								642
 							]
 						],
 						"settings":
@@ -461,15 +550,15 @@
 					"file": "js/script.js",
 					"settings":
 					{
-						"buffer_size": 2000,
+						"buffer_size": 3214,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1882,
-								1882
+								2196,
+								2196
 							]
 						],
 						"settings":
@@ -566,8 +655,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 2.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 782.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -577,15 +666,15 @@
 					"file": "js/guessinggame.jquery.js",
 					"settings":
 					{
-						"buffer_size": 3665,
+						"buffer_size": 7423,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								164,
-								164
+								5004,
+								5004
 							]
 						],
 						"settings":
@@ -683,8 +772,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 1577.0,
+						"translation.x": 1.0,
+						"translation.y": 2932.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -694,15 +783,15 @@
 					"file": "css/style.scss",
 					"settings":
 					{
-						"buffer_size": 4632,
+						"buffer_size": 5656,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1205,
-								1205
+								1666,
+								1666
 							]
 						],
 						"settings":
@@ -799,8 +888,8 @@
 							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 27.0,
-						"translation.y": 0.0,
+						"translation.x": 79.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -836,7 +925,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.455652075812,
 			1.0
 		],
 		"rows":
@@ -902,7 +991,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 249.0,
 	"status_bar_visible": true
 }

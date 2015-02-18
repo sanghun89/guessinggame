@@ -35,10 +35,9 @@
 			tickspeed : 40,
 			tickTimeOut : [],
 			temp_msg : {
-				"cold" : ["Ice Ice Baby.", "You're Cold.", "Cold."],
-				"warm" : ["Oh you getting warm.", "Getting warm.", "Warm."],
-				"warmer" : ["Getting warmer.", "Warmer.", "Oh you getting warmer."],
-				"hot" : ["Hot.", "Hawtness.", "It's getting hot in here."],
+				"cold" : ["You're Cold."],
+				"warm" : ["You're Warm."],
+				"hot" : ["You're Hot."],
 				"match" : ["You got it!", "0 to 100 real quick.", "You're a guessing master!"],
 			}
 		};
@@ -141,13 +140,13 @@
 			progress = "";
 		
 		if (prev_guess !== null) {
-			if (this.generatedNum - latest_guess < this.generatedNum - prev_guess) {
+			if (Math.abs(this.generatedNum - latest_guess) < Math.abs(this.generatedNum - prev_guess)) {
 				progress = " You are getting warmer than before!<br>";
 			} else {
 				progress = " You are getting colder than before!<br>";
 			}
 		}
-
+		
 		return progress;
 	};
 
@@ -194,10 +193,8 @@
 
 		if (this.tickLength <= Math.floor(this.guessRange * 0.35)) {
 			temp = "cold";
-		} else if (this.tickLength <= Math.floor(this.guessRange * 0.6)) {
-			temp = "warm";
 		} else if (this.tickLength <= Math.floor(this.guessRange * 0.8)) {
-			temp = "warmer";
+			temp = "warm";
 		} else if (this.tickLength === this.guessRange) {
 			temp = "match";
 		} else {
