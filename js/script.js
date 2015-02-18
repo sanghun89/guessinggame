@@ -19,7 +19,7 @@
 
 			// Hide the start button
 			$(this).stop(true).fadeOut(function() {
-				console.log(guess_game);
+				// console.log(guess_game);
 			});
 		});
 
@@ -64,7 +64,7 @@
 				var gap = guess_game.checkNumber(_submit.value),
 					degree = guess_game.checkDegree(gap);
 
-				console.log(gap);
+				// console.log(gap);
 				// guess_game.displayStatus(gap);
 
 				// Animate the ticker

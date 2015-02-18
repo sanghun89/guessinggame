@@ -158,6 +158,7 @@
 			_delay = 0,
 			key = 1;
 
+		// store number of ticks consumed
 		this.tickLength = ticker_consumed;
 
 		// Reset Tick
@@ -187,15 +188,12 @@
 	// Get temperature msg
 	$.GuessingGame.prototype.getTempMsg = function(deg) {
 		var temp = "cold";
-		if (this.tickLength !== null) {
-			this.tickLength = Math.floor($(this._ticker).children('.ticker').length * deg);
-		}
 
-		if (this.tickLength <= Math.floor(this.guessRange * 0.35)) {
+		if (deg <= 0.35) {
 			temp = "cold";
-		} else if (this.tickLength <= Math.floor(this.guessRange * 0.8)) {
+		} else if (deg <= 0.8) {
 			temp = "warm";
-		} else if (this.tickLength === this.guessRange) {
+		} else if (deg == 1) {
 			temp = "match";
 		} else {
 			temp = "hot";
