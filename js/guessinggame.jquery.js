@@ -193,7 +193,7 @@
 			temp = "cold";
 		} else if (deg <= 0.8) {
 			temp = "warm";
-		} else if (deg == 1) {
+		} else if (Math.floor(deg) == 1) {
 			temp = "match";
 		} else {
 			temp = "hot";
