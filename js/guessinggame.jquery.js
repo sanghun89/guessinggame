@@ -28,6 +28,7 @@
 			guessLimit : [1,100],
 			guessedNum : [],
 			generatedNum : null,
+			initialGap : null,
 			movesLeft : 20,
 			guessRange : 20,
 			tickLength : null,
@@ -106,7 +107,7 @@
 
 	// Check number inputed with number stored. return difference
 	$.GuessingGame.prototype.checkNumber = function(num) {
-		// overriding previously guessed number
+		//  saving guessed numbers
 		var num_int = parseInt(num, 10);
 		this.guessedNum.push(num_int);
 
@@ -118,18 +119,43 @@
 	$.GuessingGame.prototype.checkDegree = function(gap) {
 		var diff = Math.abs(gap);
 
-		// Set the diff to 0 if the gap is bigger than the range
-		diff = diff > this.guessRange ? 0 : this.guessRange - diff;
+		// Set initial gap so if guessing beyond the 
+		// guessRange, you make a new range
+		if (diff > this.guessRange) {
+			if (this.initialGap === null) {
+				this.initialGap = diff;
+				this.guessRange = this.initialGap;
+			}
+		}
+		diff =  this.guessRange - diff;
 
 		// Closer to 1, then closer to the guessed
 		return (diff/this.guessRange);
+	};
+
+	// Check previous entry to see if you are closer or not
+	$.GuessingGame.prototype.checkPrev = function() {
+		var guess_length = this.guessedNum.length,
+			latest_guess = this.guessedNum[guess_length-1],
+			prev_guess = guess_length !== 1 ? this.guessedNum[guess_length-2] : null,
+			progress = "";
+		
+		if (prev_guess !== null) {
+			if (this.generatedNum - latest_guess < this.generatedNum - prev_guess) {
+				progress = " You are getting warmer than before!<br>";
+			} else {
+				progress = " You are getting colder than before!<br>";
+			}
+		}
+
+		return progress;
 	};
 
 	// Animate ticker bar 
 	$.GuessingGame.prototype.tick = function(deg) {
 		var tickers = $(this._ticker).children('.ticker'),
 			ticker_length = tickers.length,
-			ticker_consumed = Math.floor(ticker_length * deg),
+			ticker_consumed = Math.floor(ticker_length * deg) === 0 ? 1 : Math.floor(ticker_length * deg),
 			_delay = 0,
 			key = 1;
 
@@ -144,7 +170,7 @@
 			this.tickTimeOut = [];
 		}
 
-		tickers.removeClass('.active');
+		tickers.removeClass('active');
 		
 		// Use setTimeOut to allow incremental css changes. 
 		if (ticker_consumed > 0) {
@@ -227,7 +253,14 @@
 	$.GuessingGame.prototype.startEnding = function() {
 		// Display once it is a match
 		setTimeout(function() {
-			$('#pop-up').displayPopUp('woot!' + '<a href="#" class="restart">Play Again!</a>');
+			// include vimeo
+			var _html = '<div class="ending-container">';
+				_html += '<img class="gif" src="https://media.giphy.com/media/zEJRrMkDvRe5G/giphy.gif" >';
+				_html += '<div class="ending-text">';
+				_html += '<h2>You did it! Play again!</h2>';
+				_html += '<a href="#" class="restart">Play Again!</a>';
+				_html += '</div>';
+			$('#pop-up').displayPopUp(_html);
 		}, (this.tickspeed * this.guessRange + 500));
 	};
 })(jQuery);

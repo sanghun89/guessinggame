@@ -63,8 +63,8 @@
 				// Get how close the user is
 				var gap = guess_game.checkNumber(_submit.value),
 					degree = guess_game.checkDegree(gap);
+
 				console.log(gap);
-				console.log(degree);
 				// guess_game.displayStatus(gap);
 
 				// Animate the ticker
@@ -76,6 +76,7 @@
 					$('#guess-number').animate({opacity:0});
 					guess_game.startEnding();
 				} else {
+					temp_msg += guess_game.checkPrev();
 					temp_msg += " ";
 					temp_msg += gap > 0 ? "Guess higher." : "Guess lower.";
 				}

@@ -60,7 +60,6 @@ a, a:hover, a:active, a:visited, a:focus, button, button:hover, button:active, b
 
 .main-container {
   width: 100%;
-  position: relative;
   overflow: auto;
   height: 100%; }
 
@@ -101,59 +100,136 @@ a, a:hover, a:active, a:visited, a:focus, button, button:hover, button:active, b
       border-radius: 5px;
       -moz-transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      -moz-transition: background, 0.5s, linear;
-      -o-transition: background, 0.5s, linear;
-      -webkit-transition: background, 0.5s, linear;
-      transition: background, 0.5s, linear; }
+      transform: translate3d(0, 0, 0); }
       .counter-container .gauge-container span.ticker:last-child {
         margin-right: 0; }
     .counter-container .gauge-container span.ticker.active.tick-1 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #0E1CAD; }
     .counter-container .gauge-container span.ticker.active.tick-2 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #1C28AB; }
     .counter-container .gauge-container span.ticker.active.tick-3 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #202BA6; }
     .counter-container .gauge-container span.ticker.active.tick-4 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #2D37A6; }
     .counter-container .gauge-container span.ticker.active.tick-5 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #3D45A5; }
     .counter-container .gauge-container span.ticker.active.tick-6 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #4D53A5; }
     .counter-container .gauge-container span.ticker.active.tick-7 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #5E63A5; }
     .counter-container .gauge-container span.ticker.active.tick-8 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #D5CC72; }
     .counter-container .gauge-container span.ticker.active.tick-9 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #E8D941; }
     .counter-container .gauge-container span.ticker.active.tick-10 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FDE812; }
     .counter-container .gauge-container span.ticker.active.tick-11 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FFE800; }
     .counter-container .gauge-container span.ticker.active.tick-12 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FFC200; }
     .counter-container .gauge-container span.ticker.active.tick-13 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FFA500; }
     .counter-container .gauge-container span.ticker.active.tick-14 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FF7E00; }
     .counter-container .gauge-container span.ticker.active.tick-15 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FF7E00; }
     .counter-container .gauge-container span.ticker.active.tick-16 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FF7400; }
     .counter-container .gauge-container span.ticker.active.tick-17 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FF6100; }
     .counter-container .gauge-container span.ticker.active.tick-18 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FF5700; }
     .counter-container .gauge-container span.ticker.active.tick-19 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FF4D00; }
     .counter-container .gauge-container span.ticker.active.tick-20 {
+      -moz-transition: background, 0.5s, linear;
+      -o-transition: background, 0.5s, linear;
+      -webkit-transition: background, 0.5s, linear;
+      transition: background, 0.5s, linear;
       background: #FF0000; }
   .counter-container p.status {
     color: #FFF;
     display: block;
     margin: 12px auto 10px auto;
     width: 100%;
-    text-align: center; }
+    text-align: center;
+    line-height: 130%; }
   .counter-container form.guess-container {
     display: block;
     width: 85%;
@@ -268,13 +344,15 @@ a, a:hover, a:active, a:visited, a:focus, button, button:hover, button:active, b
 
 .popup-container {
   background: rgba(0, 0, 0, 0.9);
-  position: fixed;
+  position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   bottom: 0;
-  display: none; }
+  display: none;
+  overflow: auto; }
   .popup-container .popup-close {
     display: inline-block;
     position: absolute;
@@ -308,7 +386,7 @@ a, a:hover, a:active, a:visited, a:focus, button, button:hover, button:active, b
     vertical-align: middle;
     width: 100%; }
     .popup-container .popup .popup-wrapper {
-      margin: 0 auto;
+      margin: 20px auto;
       width: 80%;
       max-width: 600px;
       padding: 15px 5%;
@@ -342,3 +420,12 @@ a, a:hover, a:active, a:visited, a:focus, button, button:hover, button:active, b
         transition: background 0.3s linear; }
         .popup-container .popup .popup-wrapper a.restart:hover {
           background: #4499e0; }
+      .popup-container .popup .popup-wrapper .ending-container {
+        text-align: center; }
+        .popup-container .popup .popup-wrapper .ending-container .gif {
+          display: block;
+          margin: 0 auto 20px auto;
+          width: 100%;
+          max-width: 480px; }
+        .popup-container .popup .popup-wrapper .ending-container a {
+          margin-top: 10px; }
