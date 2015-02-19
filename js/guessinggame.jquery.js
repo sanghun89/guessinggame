@@ -244,6 +244,7 @@
 		this.displayStatus("Guess a number from 0 - 100");
 		this._guess_input.val('');
 		this._moves.text(this.movesLeft);
+		this._ticker.find('.active').removeClass('active');
 	};
 
 	// When complete, do something cool
