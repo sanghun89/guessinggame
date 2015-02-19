@@ -8,23 +8,9 @@
 		}).css('display','table').find('.popup-wrapper').html(_html);
 	};
 
-	// Initiate Guessing Game Class
-	$.GuessingGame = function () {
-		// Storing the elements from the parameter
-		// Setting array obj to arguments obj
-		var args = Array.prototype.slice.call(arguments);
-			param_length = args.length;
-
-		if (param_length > 0) {
-			for (var i = 0; i < param_length; i++) {
-				if ($(args[i]).length) {
-					this['_' + args[i].replace('#', '')] = $(args[i]);
-				}
-			}
-		}
-
-		// Default settings
-		this._default = {
+	// Default closure
+	// Default settings
+	var _default = {
 			guessLimit : [1,100],
 			guessedNum : [],
 			generatedNum : null,
@@ -42,10 +28,24 @@
 			}
 		};
 
-		// Default custom
-		this._custom = this._default;
+	// Initiate Guessing Game Class
+	$.GuessingGame = function () {
+		// Storing the elements from the parameter
+		// Setting array obj to arguments obj
+		var args = Array.prototype.slice.call(arguments);
+			param_length = args.length;
 
-		$.extend(true, this, this._default);
+		if (param_length > 0) {
+			for (var i = 0; i < param_length; i++) {
+				if ($(args[i]).length) {
+					this['_' + args[i].replace('#', '')] = $(args[i]);
+				}
+			}
+		}
+
+		this._custom = _default;
+		$.extend(true, this, _default);
+		this._moves.text(this.movesLeft);
 	};
 
 	// Set Options
@@ -240,8 +240,10 @@
 
 	// Do Reset
 	$.GuessingGame.prototype.resetGame = function() {
-		$.extend(true, this, this._custom);
+		$.extend(this, this._custom);
 		this.displayStatus("Guess a number from 0 - 100");
+		this._guess_input.val('');
+		this._moves.text(this.movesLeft);
 	};
 
 	// When complete, do something cool

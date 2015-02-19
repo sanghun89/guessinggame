@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"_",
+				"_default"
+			],
+			[
+				"pr",
+				"prototype"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"tick",
+				"tickLength"
+			],
+			[
+				"gene",
+				"generatedNum"
+			],
+			[
+				"gu",
+				"guessedNum"
+			],
+			[
 				"gues",
 				"guessRange"
 			],
@@ -32,10 +56,6 @@
 				"prev_guess"
 			],
 			[
-				"gu",
-				"guess_length"
-			],
-			[
 				"ma",
 				"margin-top"
 			],
@@ -50,10 +70,6 @@
 			[
 				"po",
 				"pop-up"
-			],
-			[
-				"tick",
-				"tickspeed"
 			],
 			[
 				"gue",
@@ -259,7 +275,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2583,
+				"buffer_size": 2597,
 				"line_ending": "Unix"
 			}
 		},
@@ -267,7 +283,7 @@
 			"file": "js/script.js",
 			"settings":
 			{
-				"buffer_size": 3214,
+				"buffer_size": 3241,
 				"line_ending": "Unix"
 			}
 		},
@@ -275,7 +291,7 @@
 			"file": "js/guessinggame.jquery.js",
 			"settings":
 			{
-				"buffer_size": 7423,
+				"buffer_size": 6990,
 				"line_ending": "Unix"
 			}
 		},
@@ -352,6 +368,7 @@
 	},
 	"file_history":
 	[
+		"/Users/samchun/Documents/Fullstack/guessing_game/README.md",
 		"/Users/samchun/Documents/Fullstack/guessing_game/script.js",
 		"/Users/samchun/Documents/Fullstack/guessing_game/js/modernizr.js",
 		"/Users/samchun/Documents/Fullstack/guessing_game/style.scss",
@@ -382,6 +399,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_default",
+			"tickLength",
 			"set",
 			"= ",
 			"];\n",
@@ -428,15 +447,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 2583,
+						"buffer_size": 2597,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								642,
-								642
+								2045,
+								2045
 							]
 						],
 						"settings":
@@ -534,7 +553,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 494.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -542,7 +561,7 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -550,15 +569,15 @@
 					"file": "js/script.js",
 					"settings":
 					{
-						"buffer_size": 3214,
+						"buffer_size": 3241,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2196,
-								2196
+								24,
+								24
 							]
 						],
 						"settings":
@@ -655,8 +674,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 782.0,
+						"translation.x": 59.0,
+						"translation.y": 925.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -666,15 +685,19 @@
 					"file": "js/guessinggame.jquery.js",
 					"settings":
 					{
-						"buffer_size": 7423,
+						"buffer_size": 6990,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5004,
-								5004
+								1125,
+								1125
+							],
+							[
+								1158,
+								1158
 							]
 						],
 						"settings":
@@ -772,8 +795,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 1.0,
-						"translation.y": 2932.0,
+						"translation.x": 11.0,
+						"translation.y": 408.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -889,7 +912,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 79.0,
-						"translation.y": 900.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -991,7 +1014,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 249.0,
 	"status_bar_visible": true
 }

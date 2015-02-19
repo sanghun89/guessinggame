@@ -1,10 +1,11 @@
+var guess_game; // debug
 (function($) {
 	/* ------------------------------------------
 	 * Click Events called on DOM Ready
 	 * -----------------------------------------*/
 	$(document).ready(function() {
 		// Instantiate GuessingGame
-		var guess_game = new $.GuessingGame('#ticker', '#status', '#moves');
+		guess_game = new $.GuessingGame('#ticker', '#status', '#moves', '#guess_input');
 
 		// On clicking start Button
 		$('#start-guess').on('click', function(e) {
