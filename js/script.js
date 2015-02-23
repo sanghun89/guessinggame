@@ -6,7 +6,7 @@ var guess_game; // debug
 	$(document).ready(function() {
 		// Instantiate GuessingGame
 		guess_game = new $.GuessingGame('#ticker', '#status', '#moves', '#guess_input');
-
+		console.log('Run console.log method on "guess_game" variable to inspect the object');
 		// On clicking start Button
 		$('#start-guess').on('click', function(e) {
 			e.preventDefault();
@@ -28,12 +28,6 @@ var guess_game; // debug
 		$('#guess-number').on('submit', function(e) {
 			e.preventDefault();
 
-			// Check how many moves there are first
-			if (!guess_game.checkMovesLeft()) {
-				guess_game.displayStatus("You have no moves left! Game over. gg");
-				return false;
-			}
-
 			// Store and validate inputs
 			var _submit = $(this).serializeArray()[0],
 				check_num = guess_game.validateNumber(_submit),
@@ -49,6 +43,9 @@ var guess_game; // debug
 						break;
 					case 2: // Duplicate Entry
 						error_msg = "You already guessed this number!";
+						break;
+					case 3: // Ran Out of Moves
+						error_msg = "You have no moves left! Game over. Gg.";
 						break;
 				}
 			}

@@ -90,9 +90,16 @@
 				status.error_type = 1;
 			}
 
+			// Checking Duplicate
 			if (this.checkDuplicate(user_num)) {
 				status.no_error=false;
 				status.error_type = 2;
+			}
+
+			// Moves Left
+			if (!this.checkMovesLeft()) {
+				status.no_error = false;
+				status.error_type = 3;
 			}
 		}
 

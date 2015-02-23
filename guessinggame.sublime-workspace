@@ -275,7 +275,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2597,
+				"buffer_size": 2614,
 				"line_ending": "Unix"
 			}
 		},
@@ -283,7 +283,7 @@
 			"file": "js/script.js",
 			"settings":
 			{
-				"buffer_size": 3241,
+				"buffer_size": 3344,
 				"line_ending": "Unix"
 			}
 		},
@@ -291,7 +291,7 @@
 			"file": "js/guessinggame.jquery.js",
 			"settings":
 			{
-				"buffer_size": 6990,
+				"buffer_size": 7139,
 				"line_ending": "Unix"
 			}
 		},
@@ -399,6 +399,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"moves",
 			"_default",
 			"tickLength",
 			"set",
@@ -447,15 +448,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 2597,
+						"buffer_size": 2614,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2045,
-								2045
+								1869,
+								1880
 							]
 						],
 						"settings":
@@ -553,7 +554,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 494.0,
+						"translation.y": 343.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -569,15 +570,15 @@
 					"file": "js/script.js",
 					"settings":
 					{
-						"buffer_size": 3241,
+						"buffer_size": 3344,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								24,
-								24
+								401,
+								401
 							]
 						],
 						"settings":
@@ -674,8 +675,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 59.0,
-						"translation.y": 925.0,
+						"translation.x": 153.0,
+						"translation.y": 6.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -685,19 +686,15 @@
 					"file": "js/guessinggame.jquery.js",
 					"settings":
 					{
-						"buffer_size": 6990,
+						"buffer_size": 7139,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1125,
-								1125
-							],
-							[
-								1158,
-								1158
+								6547,
+								6547
 							]
 						],
 						"settings":
@@ -795,8 +792,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 11.0,
-						"translation.y": 408.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1014,7 +1011,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 249.0,
 	"status_bar_visible": true
 }
